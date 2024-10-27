@@ -169,7 +169,6 @@ void loop() {
     Serial.print("HX711 reading: "); Serial.print(reading);
     Serial.print(" (relative: "); Serial.print(relativeReading); Serial.println(")");
 
-    // Use absolute readings
     if (abs(relativeReading) > 80000) {
       tone(BUZZER_PIN, 2000);
       Serial.println("Buzzer ON");
@@ -178,12 +177,11 @@ void loop() {
       Serial.println("Buzzer OFF");
     }
 
-    // Absolute readings
     if (abs(relativeReading) > 60000) {
-      digitalWrite(BPM_LED_PIN, HIGH);  // Turn on LED pin 5
+      digitalWrite(BPM_LED_PIN, HIGH);
       Serial.println("BPM LED ON");
     } else {
-      digitalWrite(BPM_LED_PIN, LOW);   // Turn off LED pin 5
+      digitalWrite(BPM_LED_PIN, LOW);
       Serial.println("BPM LED OFF");
     }
   }
